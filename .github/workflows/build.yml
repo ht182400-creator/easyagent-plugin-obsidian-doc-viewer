@@ -26,13 +26,16 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Create dist.zip
-        run: zip -r dist.zip dist/
+      - name: Create plugin.zip
+        run: |
+          # 插件安装包 = manifest.json + plugin.js + dist/
+          # 不能只打包 dist/，否则 Server 端缺少 manifest.json/plugin.js 会校验失败
+          zip -r plugin.zip manifest.json plugin.js dist/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist.zip
+          files: plugin.zip
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
