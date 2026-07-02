@@ -4,7 +4,9 @@ import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',  // EasyAgent Server 通过 /doc-viewer/ 路径托管，必须使用绝对路径
+  // base 必须与 EasyAgent Server 的静态托管路径一致：/doc-viewer/
+  // 独立 dev 开发时也要用 /doc-viewer/ 前缀访问 http://localhost:5184/doc-viewer/
+  base: '/doc-viewer/',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -18,5 +20,7 @@ export default defineConfig({
   },
   server: {
     port: 5184,
+    // 让 dev server 也能处理 /doc-viewer/ 前缀访问
+    open: '/doc-viewer/',
   },
 });

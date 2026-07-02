@@ -43,7 +43,7 @@ git clone https://github.com/ht182400-creator/easyagent-plugin-obsidian-doc-view
 cd easyagent-plugin-obsidian-doc-viewer
 pnpm install
 pnpm dev
-# 访问 http://localhost:5184
+# 访问 http://localhost:5184/doc-viewer/  (base 路径固定为 /doc-viewer/ 以与 Server 托管一致)
 ```
 
 打开后点击右上角 **「打开目录」** 选择本地 Markdown 项目，或在 **「设置」** 中加载示例数据。
