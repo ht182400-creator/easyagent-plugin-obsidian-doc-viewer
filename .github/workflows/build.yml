@@ -20,14 +20,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install pnpm
-        run: npm install -g pnpm@9
-
       - name: Install dependencies
-        run: pnpm install --prefer-offline
+        run: npm ci
 
       - name: Build
-        run: pnpm build
+        run: npm run build
 
       - name: Create dist.zip
         run: zip -r dist.zip dist/
