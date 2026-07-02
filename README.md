@@ -1,9 +1,13 @@
 # EasyAgent Plugin: Obsidian Doc Viewer
 
 > Obsidian-like Markdown 文档浏览器与知识库工具 — EasyAgent 生态第三方插件
-> 
+>
 > **仓库**: [easyagent-plugin-obsidian-doc-viewer](https://github.com/ht182400-creator/easyagent-plugin-obsidian-doc-viewer)
-> **本地路径**: `D:\Work_Area\AI\Doc_project`
+>
+> [!NOTE]
+> **发布说明**: 插件通过 GitHub Actions CI/CD 自动构建。推送 `v*` 标签后，`dist.zip` 自动上传到 Release。EasyAgent 安装时直接下载预构建产物，无需本地构建。
+
+[![Build & Release](https://github.com/ht182400-creator/easyagent-plugin-obsidian-doc-viewer/actions/workflows/build.yml/badge.svg)](https://github.com/ht182400-creator/easyagent-plugin-obsidian-doc-viewer/actions/workflows/build.yml)
 
 ---
 
@@ -30,10 +34,13 @@
 1. 在 EasyAgent 设置 → 第三方插件 → 社区插件市场中搜索 "Obsidian Doc Viewer"
 2. 点击安装并启用
 
+> **CI/CD 说明**: 插件发布时会自动在 GitHub Actions 中执行 `pnpm build`，产物 `dist.zip` 作为 Release Asset 上传。EasyAgent 安装时会优先下载 `dist.zip` 解压到插件目录，无需本地构建。
+
 ## 独立运行
 
 ```bash
-cd D:\Work_Area\AI\Doc_project
+git clone https://github.com/ht182400-creator/easyagent-plugin-obsidian-doc-viewer.git
+cd easyagent-plugin-obsidian-doc-viewer
 pnpm install
 pnpm dev
 # 访问 http://localhost:5184
